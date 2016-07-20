@@ -4,6 +4,10 @@
 
 some awesome go utils
 
+## go get
+
+`go get github.com/upyun/utilgo`
+
 ## Usage
 
 `import "github.com/upyun/utilgo"`
