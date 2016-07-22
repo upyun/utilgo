@@ -1,14 +1,15 @@
-package set
+package set_test
 
 import (
 	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/upyun/utilgo/set"
 )
 
 func TestEmptySet(t *testing.T) {
-	s := New()
+	s := set.New()
 	assert.Zero(t, s.Len(), "New set Len should be 0")
 	assert.Zero(t, len(s.List()), "New set List length should be 0")
 
@@ -19,7 +20,7 @@ func TestEmptySet(t *testing.T) {
 }
 
 func TestConcurrentAddAndRemove(t *testing.T) {
-	s := New()
+	s := set.New()
 	jobs := 2
 	done := make(chan bool, jobs)
 	go func() {
@@ -54,7 +55,7 @@ func TestConcurrentAddAndRemove(t *testing.T) {
 }
 
 func ExampleSet() {
-	s := New()
+	s := set.New()
 	s.Add(1)
 	s.Add(2)
 	s.Add(3)

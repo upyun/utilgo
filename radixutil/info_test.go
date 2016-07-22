@@ -1,4 +1,4 @@
-package radixutil
+package radixutil_test
 
 import (
 	"io/ioutil"
@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/upyun/utilgo/radixutil"
 )
 
 var (
@@ -23,12 +24,12 @@ func init() {
 
 func TestBuildMapFromInfoString(t *testing.T) {
 	trimmed := strings.TrimSpace(infoRaw)
-	rmap := BuildMapFromInfoString(trimmed)
+	rmap := radixutil.BuildMapFromInfoString(trimmed)
 
 	assert.Equal(t, 0, len(rmap["redis_version"]), "redis_version should be parsed")
 }
 
 func TestBuildAllInfoMap(t *testing.T) {
-	alldata := BuildAllInfoMap(infoRaw)
+	alldata := radixutil.BuildAllInfoMap(infoRaw)
 	assert.Equal(t, 0, len(alldata["CPU"]["used_cpu_sys"]), "cpu.used_cpu_sys should be parsed")
 }
