@@ -1,3 +1,4 @@
+// Package url contains some url related helper functions.
 package url
 
 import (
