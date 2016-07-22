@@ -10,4 +10,5 @@ some awesome go utils
 
 ## Usage
 
-`import "github.com/upyun/utilgo"`
+* `import "github.com/upyun/utilgo/url"`
+* `import "github.com/upyun/utilgo/set"`
