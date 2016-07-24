@@ -11,6 +11,9 @@ install:
   - go get
   - go get github.com/alecthomas/gometalinter
   - gometalinter --install --update
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/mattn/goveralls
 
 script:
-  - gometalinter ./... --deadline=30s
+  - gometalinter ./... --deadline=1m
+  - goveralls -v -coverprofile=coverage.out -service=travis-ci
