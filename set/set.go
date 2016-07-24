@@ -52,10 +52,7 @@ func (s *Set) Clear() {
 
 // IsEmpty checks for emptiness
 func (s *Set) IsEmpty() bool {
-	if s.Len() == 0 {
-		return true
-	}
-	return false
+	return s.Len() == 0
 }
 
 // List Set returns a slice of all items
