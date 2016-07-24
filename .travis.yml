@@ -8,7 +8,7 @@ go:
   - tip
 
 install:
-  - go get
+  - go get -v ./...
   - go get github.com/alecthomas/gometalinter
   - gometalinter --install --update
   - go get golang.org/x/tools/cmd/cover
