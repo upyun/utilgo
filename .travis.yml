@@ -8,7 +8,7 @@ go:
   - tip
 
 install:
-  - go get -v ./...
+  - go get -u ./...
   - go get -u github.com/stretchr/testify/assert
   - go get -u github.com/alecthomas/gometalinter
   - gometalinter --install --update
@@ -16,5 +16,6 @@ install:
   - go get -u github.com/mattn/goveralls
 
 script:
+  - go test -v -bench=. -benchmem -cover ./...
   - gometalinter ./... --deadline=1m
   - goveralls -v -service=travis-ci
