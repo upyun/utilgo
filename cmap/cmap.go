@@ -29,15 +29,13 @@ func (cm *Cmap) Get(k interface{}) (interface{}, bool) {
 }
 
 // Set maps the given key and value.
-// Return false if the key:value is already in the map and changes nothing.
+// Return false if the key is already in the map and changes nothing.
 func (cm *Cmap) Set(k interface{}, v interface{}) bool {
 	cm.Lock()
 	defer cm.Unlock()
-	if val, ok := cm.m[k]; !ok {
-		cm.m[k] = v
-	} else if val != v {
-		cm.m[k] = v
-	} else {
+	_, ok := cm.m[k]
+	cm.m[k] = v
+	if ok {
 		return false
 	}
 	return true
