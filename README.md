@@ -12,4 +12,5 @@ some awesome go utils
 
 * `import "github.com/upyun/utilgo/url"`
 * `import "github.com/upyun/utilgo/set"`
+* `import "github.com/upyun/utilgo/cmap"`
 * `import "github.com/upyun/utilgo/radixutil"`
