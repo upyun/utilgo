@@ -7,6 +7,9 @@ go:
   - 1.6
   - tip
 
+services:
+  - redis-server
+
 install:
   - go get -u ./...
   - go get -u github.com/stretchr/testify/assert
