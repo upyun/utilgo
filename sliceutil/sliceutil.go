@@ -7,7 +7,7 @@ import (
 
 // IndexOf returns the first index at which a given element can be found in the slice, or -1 if it is not present.
 // The second argument must be a slice or array.
-func IndexOf(val interface{}, slice ...interface{}) {
+func IndexOf(val interface{}, slice ...interface{}) int {
 	v := reflect.ValueOf(val)
 	arr := reflect.ValueOf(slice)
 
