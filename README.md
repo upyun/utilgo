@@ -15,3 +15,4 @@ some awesome go utils
 * `import "github.com/upyun/utilgo/radixutil"`
 * `import "github.com/upyun/utilgo/urlutil"`
 * `import "github.com/upyun/utilgo/jsonutil"`
+* `import "github.com/upyun/utilgo/testutil"`
