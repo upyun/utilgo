@@ -1,5 +1,5 @@
-// Package url contains some url related helper functions.
-package url
+// Package urlutil contains some url related helper functions.
+package urlutil
 
 import (
 	"strings"
