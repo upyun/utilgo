@@ -50,7 +50,7 @@ func TestIntsArrayFound(t *testing.T) {
 	var v uint8 = 3
 	var a = [5]byte{1, 2, 3, 4, 5}
 
-	assert.Equal(-1, sliceutil.IndexOf(v, a))
+	assert.Equal(2, sliceutil.IndexOf(v, a))
 }
 
 func ExampleIndexOf() {
