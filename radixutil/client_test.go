@@ -3,13 +3,12 @@ package radixutil_test
 import (
 	"testing"
 
-	"github.com/upyun/utilgo/testutil"
-	"github.com/upyun/utilgo/radixutil"
 	"github.com/stretchr/testify/assert"
+	"github.com/upyun/utilgo/radixutil"
+	"github.com/upyun/utilgo/testutil"
 )
 
-
-func TestClient(t *testing.T){
+func TestClient(t *testing.T) {
 	c := radixutil.New("localhost:6379")
 	k := testutil.RandStr()
 	v := testutil.RandStr()
