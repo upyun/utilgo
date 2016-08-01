@@ -78,7 +78,7 @@ func (c *Client) Cmd(cmd string, args ...interface{}) *redis.Resp {
 		r := doCmd(rclient, cmd, args...)
 		if err := r.Err; err != nil {
 			if r.IsType(redis.IOErr) {
-				rclient.Close()
+				_ = rclient.Close()
 				c.clients[addr] = nil
 				continue
 			}
