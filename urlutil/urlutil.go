@@ -2,6 +2,8 @@
 package urlutil
 
 import (
+	"crypto/md5"
+	"encoding/hex"
 	"strings"
 )
 
@@ -12,4 +14,11 @@ func ParseRawStreamURL(rawStreamURL string) (vhost, app, stream string) {
 	app = s[1]
 	stream = strings.Join(s[2:], "/")
 	return vhost, app, stream
+}
+
+// GetMD5Hash calc a string md5
+func GetMD5Hash(text string) string {
+	hasher := md5.New()
+	hasher.Write([]byte(text))
+	return hex.EncodeToString(hasher.Sum(nil))
 }

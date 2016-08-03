@@ -22,3 +22,7 @@ func TestParseRawStreamURL(t *testing.T) {
 		assert.Equal(t, "bb/cc", stream, "stream should be parsed OK")
 	}
 }
+
+func TestGetMD5Hash(t *testing.T) {
+	assert.Equal(t, "a384b6463fc216a5f8ecb6670f86456a", urlutil.GetMD5Hash("qwert"))
+}
