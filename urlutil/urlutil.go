@@ -19,6 +19,9 @@ func ParseRawStreamURL(rawStreamURL string) (vhost, app, stream string) {
 // GetMD5Hash calc a string md5
 func GetMD5Hash(text string) string {
 	hasher := md5.New()
-	hasher.Write([]byte(text))
+	_, err := hasher.Write([]byte(text))
+	if err != nil {
+		panic(err)
+	}
 	return hex.EncodeToString(hasher.Sum(nil))
 }
