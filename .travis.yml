@@ -19,5 +19,5 @@ install:
 
 script:
   - go test -v -bench=. -benchmem -cover ./...
-  - gometalinter ./... --deadline=1m
+  - gometalinter --disable-all --enable=aligncheck --enable=deadcode --enable=dupl --enable=errcheck --enable=goconst --enable=goconst --enable=gocyclo --enable=goimports --enable=golint --enable=gosimple --enable=gotype --enable=ineffassign --enable=interfacer --enable=misspell --enable=staticcheck --enable=structcheck --enable=unconvert --enable=unused --enable=varcheck ./... --deadline=1m
   - goveralls -v -service=travis-ci -repotoken=$COVERALLS_TOKEN
