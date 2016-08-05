@@ -2,7 +2,6 @@ package set_test
 
 import (
 	"fmt"
-	"sort"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -18,6 +17,16 @@ func TestEmptySet(t *testing.T) {
 	s.Add(2)
 	s.Clear()
 	assert.True(t, s.IsEmpty(), "Clear set should be empty")
+}
+
+func TestEach(t *testing.T) {
+	s := set.New()
+	s.Add(1)
+	s.Add(2)
+	fn := func(e interface{}) {
+		assert.True(t, s.Has(e))
+	}
+	s.Each(fn)
 }
 
 func TestConcurrentAddAndRemove(t *testing.T) {
@@ -65,16 +74,8 @@ func ExampleSet() {
 	fmt.Println(s.Has(1))
 	fmt.Println(s.Has(2))
 	fmt.Println(s.Has(3))
-	l := []interface{}{}
-	fn := func(e interface{}) {
-		l = append(l, e)
-	}
-	s.Each(fn)
-	sort.Sort(l)
-	fmt.Println(l)
 	// Output: 2
 	// true
 	// false
 	// true
-	// [1 3]
 }
