@@ -5,14 +5,14 @@ import "sync"
 
 // Set safe map
 type Set struct {
-	m map[interface{}]bool
+	m map[interface{}]struct{}
 	sync.RWMutex
 }
 
 // New new set
 func New() *Set {
 	return &Set{
-		m: make(map[interface{}]bool),
+		m: make(map[interface{}]struct{}),
 	}
 }
 
@@ -20,7 +20,7 @@ func New() *Set {
 func (s *Set) Add(item interface{}) {
 	s.Lock()
 	defer s.Unlock()
-	s.m[item] = true
+	s.m[item] = struct{}{}
 }
 
 // Remove deletes the specified item from the map
@@ -47,12 +47,19 @@ func (s *Set) Len() int {
 func (s *Set) Clear() {
 	s.Lock()
 	defer s.Unlock()
-	s.m = make(map[interface{}]bool)
+	s.m = make(map[interface{}]struct{})
 }
 
 // IsEmpty checks for emptiness
 func (s *Set) IsEmpty() bool {
 	return s.Len() == 0
+}
+
+// Each call fn on each element in the Set
+func (s *Set) Each(fn func(interface{})) {
+	for e := range s.m {
+		fn(e)
+	}
 }
 
 // List Set returns a slice of all items

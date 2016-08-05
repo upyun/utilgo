@@ -2,6 +2,7 @@ package set_test
 
 import (
 	"fmt"
+	"sort"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -64,8 +65,16 @@ func ExampleSet() {
 	fmt.Println(s.Has(1))
 	fmt.Println(s.Has(2))
 	fmt.Println(s.Has(3))
+	l := []interface{}{}
+	fn := func(e interface{}) {
+		l = append(l, e)
+	}
+	s.Each(fn)
+	sort.Sort(l)
+	fmt.Println(l)
 	// Output: 2
 	// true
 	// false
 	// true
+	// [1 3]
 }
