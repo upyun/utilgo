@@ -62,8 +62,6 @@ type ConfigMeta struct {
 	RedisSentinelGroup string `json:"redis_sentinel_group"`
 	// BGPushPoolSize Number of goroutines to have processing NOBLOCK Q*PUSH commands
 	BGPushPoolSize int `json:"bg_push_pool_size"`
-	// Debug Turn on debug logging
-	Debug bool `json:"debug"`
 	// RedisCluster Whether or not to treat the redis address as a node in a larger cluster
 	RedisCluster bool `json:"redis_cluster"`
 	// RedisSentinel Whether or not to redis sentinel mode
@@ -89,7 +87,6 @@ func InitDB(config *ConfigMeta) {
 			RedisSentinel:      false,
 			RedisSentinels:     []string{},
 			RedisSentinelGroup: "master",
-			Debug:              true,
 			BGPushPoolSize:     128,
 		}
 	} else {
