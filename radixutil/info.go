@@ -1,5 +1,3 @@
-// Package radixutil add some helper functions to supplement radix package
-// Use this package with https://github.com/mediocregopher/radix.v2
 package radixutil
 
 import (
