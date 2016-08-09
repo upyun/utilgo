@@ -17,7 +17,6 @@ func TestScan(t *T) {
 		RedisSentinel:      false,
 		RedisSentinels:     []string{},
 		RedisSentinelGroup: "master",
-		BGPushPoolSize:     128,
 	}
 	radixutil.InitDB(conf)
 	for i := 0; i < 100; i++ {
